@@ -1,0 +1,12 @@
+*.pyc
+.idea/*
+.scrapy/*
+.settings/*
+.DS_Store
+.vscode/*
+storage/*
+vendor
+conf/local.ini
+conf/develop.ini
+conf/release.ini
+conf/product.ini
