@@ -11,15 +11,15 @@ class ZhihuSpider(scrapy.Spider):
     follows_url = 'https://xinhuanet.hifuli.com/chinese?sort=new&page={page}'
 
     def start_requests(self):
-        for page in range(1,2):
+        for page in range(99,8985):
             yield Request(self.follows_url.format(page=page),self.parse_follows)
 
     def parse_user(self, response):
         #print(response.url)
         image_url = response.xpath('//video/@poster').extract()[0]
         yield {
-            'files':response.xpath('//title/text()').extract(),
-            'url':response.url,
+            'title':response.xpath('//title/text()').extract(),
+            'link':response.url,
             'file_urls':response.xpath('//a[@class="btn btn-primary"]/@href').extract(),
             'image_urls':[self.image_start.format(image_url=image_url)],
             }

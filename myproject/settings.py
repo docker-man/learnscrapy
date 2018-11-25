@@ -15,6 +15,11 @@ SPIDER_MODULES = ['myproject.spiders']
 NEWSPIDER_MODULE = 'myproject.spiders'
 
 
+CONCURRENT_REQUESTS = 100
+LOG_LEVEL = 'INFO'
+COOKIES_ENABLED = False
+REDIRECT_ENABLED = False
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'myproject (+http://www.yourdomain.com)'
 
@@ -61,9 +66,9 @@ FILES_EXPIRES = 90
 # 图片存储路径(绝对路径 or 相对路径)
 IMAGES_STORE = 'D:\\docke\\work\\myproject\\dir'
 # 该字段的值为XxxItem中定义的存储图片链接的image_urls字段
-IMAGES_URLS_FIELD='image_urls'
+#IMAGES_URLS_FIELD='image_urls'
 # 该字段的值为XxxItem中定义的存储图片信息的images字段
-IMAGES_RESULT_FIELD='files'
+#IMAGES_RESULT_FIELD='files'
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
@@ -81,11 +86,12 @@ IMAGES_RESULT_FIELD='files'
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'myproject.pipelines.MyprojectPipeline': 300,
-    'scrapy.pipelines.files.FilesPipeline': 2,
+    'scrapy.pipelines.images.ImagesPipeline':1,
 }
 
 #    'myproject.pipelines.MyFilesPipeline': 1,
 #    'scrapy.pipelines.images.ImagesPipeline':1,
+#    'scrapy.pipelines.files.FilesPipeline': 2,
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

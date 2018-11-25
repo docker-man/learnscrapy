@@ -6,6 +6,7 @@ dir/*
 .DS_Store
 .vscode/*
 storage/*
+res.json
 vendor
 conf/local.ini
 conf/develop.ini
