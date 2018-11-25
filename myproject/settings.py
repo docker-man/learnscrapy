@@ -54,6 +54,16 @@ DEFAULT_REQUEST_HEADERS = {
 #SPIDER_MIDDLEWARES = {
 #    'myproject.middlewares.MyprojectSpiderMiddleware': 543,
 #}
+FILES_STORE = 'D:\\docke\\work\\myproject\\dir'
+FILES_URLS_FIELD='file_urls'
+FILES_RESULT_FIELD='files'
+FILES_EXPIRES = 90
+# 图片存储路径(绝对路径 or 相对路径)
+IMAGES_STORE = 'D:\\docke\\work\\myproject\\dir'
+# 该字段的值为XxxItem中定义的存储图片链接的image_urls字段
+IMAGES_URLS_FIELD='image_urls'
+# 该字段的值为XxxItem中定义的存储图片信息的images字段
+IMAGES_RESULT_FIELD='files'
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
@@ -69,9 +79,13 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'myproject.pipelines.MyprojectPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'myproject.pipelines.MyprojectPipeline': 300,
+    'scrapy.pipelines.files.FilesPipeline': 2,
+}
+
+#    'myproject.pipelines.MyFilesPipeline': 1,
+#    'scrapy.pipelines.images.ImagesPipeline':1,
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

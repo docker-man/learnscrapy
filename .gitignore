@@ -1,5 +1,6 @@
 *.pyc
 .idea/*
+dir/*
 .scrapy/*
 .settings/*
 .DS_Store
